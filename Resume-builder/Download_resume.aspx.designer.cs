@@ -24,6 +24,15 @@ namespace Resume_builder
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// lout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button lout;
+
+        /// <summary>
         /// display_name control.
         /// </summary>
         /// <remarks>
@@ -33,12 +42,57 @@ namespace Resume_builder
         protected global::System.Web.UI.WebControls.Label display_name;
 
         /// <summary>
-        /// details control.
+        /// Personal_details control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label details;
+        protected global::System.Web.UI.WebControls.GridView Personal_details;
+
+        /// <summary>
+        /// InfoSqlDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource InfoSqlDataSource;
+
+        /// <summary>
+        /// Education_details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Education_details;
+
+        /// <summary>
+        /// SkillsSqlDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SkillsSqlDataSource;
+
+        /// <summary>
+        /// Skills_details control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Skills_details;
+
+        /// <summary>
+        /// EduSqlDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource EduSqlDataSource;
     }
 }

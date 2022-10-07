@@ -110,10 +110,13 @@
           
            
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Contact.aspx">
-              Contact us</a>
+          <a class="nav-link active" aria-current="page" href="Download_resume.aspx">MyResume</a>
             </li>
-              <asp:LinkButton class="nav-link active" ID="logout" runat="server" OnClick="LinkButton1_Click">Logout</asp:LinkButton>
+          <li class="nav-item">
+
+              <asp:Button ID="lout" class="nav-link active" runat="server" Onclick="onlogout" Text="Logout" />
+          </li>
+         
           <li class="nav-item intro">
               <h5>Hello,
               <asp:Label ID="display_name" runat="server" Text="Label"></asp:Label></h5>

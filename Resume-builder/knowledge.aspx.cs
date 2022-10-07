@@ -42,10 +42,11 @@ namespace Resume_builder
         }
         protected void onSkill(object sender,EventArgs e)
         {
-            SqlCommand skil = new SqlCommand("insert into Skills" + "(Skill,Hobbies,Courses)values(@Skill,@Hobbies,@Courses)", con);
+            SqlCommand skil = new SqlCommand("insert into Skills" + "(Skill,Hobbies,Courses,Email)values(@Skill,@Hobbies,@Courses,@Email)", con);
             skil.Parameters.AddWithValue("@Skill", skills_input.Text);
             skil.Parameters.AddWithValue("@Hobbies", hobbie_input.Text);
             skil.Parameters.AddWithValue("@Courses", course_input.Text);
+            skil.Parameters.AddWithValue("@Email", Session["email_user"]);
             skil.ExecuteNonQuery();
             Response.Write("<script>alert('Your Data is recorded successfully')</script>");
             con.Close();
@@ -56,8 +57,10 @@ namespace Resume_builder
             Response.Redirect("Download_resume.aspx");
         }
 
+        
         protected void onlogout(object sender, EventArgs e)
         {
+
             Session["email_user"] = null;
             Response.Redirect("Login.aspx");
 

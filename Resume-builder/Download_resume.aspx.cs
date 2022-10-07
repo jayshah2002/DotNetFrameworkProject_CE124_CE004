@@ -29,7 +29,8 @@ namespace Resume_builder
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["resume"].ConnectionString;
                 con.Open();
                 showname();
-                showdata();
+                
+                con.Close();
             }
 
         }
@@ -42,10 +43,17 @@ namespace Resume_builder
             display_name.Text = ds.Tables[0].Rows[0]["Name"].ToString();
 
         }
-        public void showdata()
-        {
-           
+        
 
+
+        
+       
+
+        protected void onlogout(object sender, EventArgs e)
+        {
+
+            Session["email_user"] = null;
+            Response.Redirect("Login.aspx");
 
         }
     }

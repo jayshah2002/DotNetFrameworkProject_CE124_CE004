@@ -115,7 +115,7 @@
             </li>
            
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="Contact.aspx">Contact us</a>
+          <a class="nav-link active" aria-current="page" href="Download_resume.aspx">MyResume</a>
             </li>
           <li class="nav-item intro">
               <h5>Hello,

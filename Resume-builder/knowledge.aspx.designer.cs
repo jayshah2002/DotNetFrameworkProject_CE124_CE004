@@ -24,13 +24,13 @@ namespace Resume_builder
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// logout control.
+        /// lout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton logout;
+        protected global::System.Web.UI.WebControls.Button lout;
 
         /// <summary>
         /// display_name control.

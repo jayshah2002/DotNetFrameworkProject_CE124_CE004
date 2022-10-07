@@ -13,6 +13,10 @@
          .intro{
         margin-left:700px;
     }
+         #lout{
+         background-color:cornflowerblue;
+         border:none;
+     }
     </style>
 </head>
 <body>
@@ -30,7 +34,8 @@
           <a class="nav-link active" aria-current="page" href="Getstarted.aspx">Home</a>
             </li> 
           <li class="nav-item">
-          <a class="nav-link active" aria-current="page" onclick="onlogout">Logout</a>
+           <asp:Button ID="lout" class="nav-link active" runat="server" Onclick="onlogout" Text="Logout" />
+         
             </li>
            
           <li class="nav-item">
@@ -44,32 +49,94 @@
     </div>
   </div>
 </nav>
-        <!--<div id="download_resume">
-
-           <div id="personal_info">
-               <center>
-                   <h3>All details about me</h3>
-                   <p>
-                       <asp:Label ID="details" runat="server" Text="Label"></asp:Label>
-                   </p>
-               </center>
-               
-           </div>
-           <div id="Education_info">
-               <center>
-                   <h3>All details about me</h3>
-               </center>
-               <div id="edu_details"></div>
-           </div>
-           <div id="skill_info">
-               <center>
-                   <h3>All details about me</h3>
-               </center>
-               <div id="skill_details"></div>
-           </div>
-           
-
-        </div>-->
+        <br />
+        <br />
+        <h3>MyDetails:</h3>
+        <asp:GridView ID="Personal_details" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="InfoSqlDataSource" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <Columns>
+                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                <asp:BoundField DataField="Mobileno" HeaderText="Mobileno" SortExpression="Mobileno" />
+                <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+                <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+                <asp:BoundField DataField="Gender" HeaderText="Gender" SortExpression="Gender" />
+            </Columns>
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        </asp:GridView>
+        <asp:SqlDataSource ID="InfoSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Name], [Email], [Mobileno], [State], [City], [Gender] FROM [Personaldetails] WHERE ([Email] = @Email)">
+            <SelectParameters>
+                <asp:SessionParameter Name="Email" SessionField="email_user" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+      <br />
+        <br />
+        
+        
+       <br />
+        <br />
+        <h3>Education:</h3>
+        <asp:GridView ID="Education_details" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataSourceID="EduSqlDataSource">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <Columns>
+                <asp:BoundField DataField="SSC" HeaderText="SSC" SortExpression="SSC" />
+                <asp:BoundField DataField="HSC" HeaderText="HSC" SortExpression="HSC" />
+                <asp:BoundField DataField="Degree" HeaderText="Degree" SortExpression="Degree" />
+            </Columns>
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        </asp:GridView>
+        <asp:SqlDataSource ID="SkillsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Skill], [Hobbies], [Courses] FROM [Skills] WHERE ([Email] = @Email)">
+            <SelectParameters>
+                <asp:SessionParameter Name="Email" SessionField="email_user" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+       <br />
+        <br />
+        <h3>Skills</h3>
+        <asp:GridView ID="Skills_details" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataSourceID="SkillsSqlDataSource">
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <Columns>
+                <asp:BoundField DataField="Skill" HeaderText="Skill" SortExpression="Skill" />
+                <asp:BoundField DataField="Hobbies" HeaderText="Hobbies" SortExpression="Hobbies" />
+                <asp:BoundField DataField="Courses" HeaderText="Courses" SortExpression="Courses" />
+            </Columns>
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+        </asp:GridView>
+       
+        
+        <asp:SqlDataSource ID="EduSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [SSC], [HSC], [Degree] FROM [Education] WHERE ([Email] = @Email)">
+            <SelectParameters>
+                <asp:SessionParameter Name="Email" SessionField="email_user" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+       
         
     </form>
 </body>

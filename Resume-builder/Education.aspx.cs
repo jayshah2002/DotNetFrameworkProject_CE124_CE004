@@ -34,10 +34,11 @@ namespace Resume_builder
 
         protected void onEdu(object sender,EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("insert into Education" + "(Degree,HSC,SSC)values(@Degree,@HSC,@SSC)", con);
+            SqlCommand cmd = new SqlCommand("insert into Education" + "(Degree,HSC,SSC,Email)values(@Degree,@HSC,@SSC,@Email)", con);
             cmd.Parameters.AddWithValue("@Degree", degree_input.Text);
             cmd.Parameters.AddWithValue("@HSC", hsc_input.Text);
             cmd.Parameters.AddWithValue("@SSC", ssc_input.Text);
+            cmd.Parameters.AddWithValue("@Email", Session["email_user"]);
             cmd.ExecuteNonQuery();
             Response.Write("<script>alert('Your Data is recorded successfully')</script>");
             con.Close();
